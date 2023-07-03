@@ -64,3 +64,40 @@ range(
     10
 )  # returns on object range(0, 10) - it doesn't create a list, which saves space
 # such an object is iterable
+
+
+# break, continue, else clauses on loops
+
+for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, "equals", x, "*", n // x)
+            break
+    else:  # loops MAY HAVE an else clause - runs when no break occurs
+        # loop fell through without finding a factor
+        print(n, "is a prime number")
+
+
+class MyEmptyClass:
+    pass
+
+
+def do_something():
+    pass  # a placeholder for a function or conditional body that does nothing
+
+
+# match statement
+
+
+def http_error(status):  # compare a subject value against a number of literals
+    match status:
+        case 400:
+            return "Bad request"
+        case 401 | 402 | 403:
+            return "Not allowed"
+        case 404:
+            return "Not found"
+        case 418:
+            return "I'm a teapot"
+        case _:
+            return "Something's wrong with the Internet"  # a wildcard, never fails to match, the default

@@ -4,7 +4,7 @@ CREATE TABLE documents(
     id bigserial PRIMARY KEY,
     content text,
     metadata jsonb,
-    embedding vector(1536)
+    embedding vector(384)
 );
 
 CREATE OR REPLACE FUNCTION match_documents(query_embedding vector(1536), match_count int DEFAULT NULL, FILTER jsonb DEFAULT '{}')
